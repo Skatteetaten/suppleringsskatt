@@ -1,0 +1,828 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="GLOBEXML_V1.0.xsd" type="application/xml-xsd"?>
+<!--Globe tax return file for GIR levering basert på OECD standard 
+0. 
+    Alle GUID som er brukt i denne filen er konstruert og skal ikke brukes 
+
+1. MessageSpec
+    - Denne delen inneholder informasjon om sendingen og sender
+2. FilingInfo
+    -   Denne delen inneholder informasjon om konsernet og regnskapsåret
+3. GeneralSection
+    -  Denne delen inneholder informasjon om konsernstrukturen og hvilke enheter som er med i rapporteringen
+    -   Denne delen inneholder også informasjon om hvilke jurisdiksjoner som er med i rapporteringen
+    -   Denne delen inneholder også informasjon om hvilken type data som sendes
+4. Summary
+    -   Denne delen inneholder oppsummering av informasjonen i rapporteringen
+    -   Denne delen inneholder også informasjon om hvilke jurisdiksjoner som er med i rapporteringen
+    -   Denne delen inneholder også informasjon om hvilken type data som sendes
+5. JurisdictionSection
+    -   Denne delen inneholder informasjon om hver enkelt jurisdiksjon som er med i rapporteringen
+    -   Denne delen inneholder også informasjon om hvilken type data som sendes
+6. GLoBETax
+    -   Denne delen inneholder informasjon om GLoBE tax return
+    -   Denne delen inneholder også informasjon om hvilken type data som sendes
+7. LowTaxJurisdiction
+    -   Denne delen inneholder informasjon om lavskatt jurisdiksjoner
+    -   Denne delen inneholder også informasjon om hvilken type data som sendes
+
+    
+
+-->
+
+<n1:GLOBE_OECD xmlns="urn:oecd:ties:globe:v2"
+               xmlns:n1="urn:oecd:ties:globe:v2"
+               xmlns:n2="urn:oecd:ties:globestf:v5" version="1">
+    <n1:MessageSpec>
+        <n1:SendingEntityIN>KJENT TREKANTET TIGER AS</n1:SendingEntityIN>        <!-- Org/konsern navn -->
+        <n1:TransmittingCountry>NO</n1:TransmittingCountry>        <!--sende land-->
+        <n1:ReceivingCountry>NO</n1:ReceivingCountry>        <!--mottagende land-->
+        <n1:MessageType>GIR</n1:MessageType>        <!--Meldingstype for GIR filer skal det alltid være GLOBE-->
+        <!-- n1:Warning></n1:Warning-->        <!--ekstrainstruksjoneriforholdtilregskapsår-->
+        <n1:Contact>"Contact information"</n1:Contact>        <!--Bruker CBC som base for denne , fri tekst ved innlandssending infor om rapporterings selskap -->
+        <n1:MessageRefId>24a42280-8406-470c-944a-ec0684563789</n1:MessageRefId>        <!--Sendingsreferanse laget av sende typisk GUID -->
+        <n1:MessageTypeIndic>GIR101</n1:MessageTypeIndic>        <!--GIR101=nyinfo:GIR102=rettelse:GIR103=ingendata -->
+        <n1:ReportingPeriod>2024-07-01</n1:ReportingPeriod>        <!--siste dag av regnskapsår hvis unormalt beskrives i warning element-->
+        <n1:Timestamp>2024-07-01T12:23:40</n1:Timestamp>        <!--nårmeldingblelaget-->
+    </n1:MessageSpec>
+    <n1:GLOBEBody>
+        <n1:FilingInfo>
+            <n1:FilingCE>
+                <n1:ResCountryCode>NO</n1:ResCountryCode>                <!--land vikrsomhet holder til i-->
+                <n1:Name>Testkonsern ASA</n1:Name>                <!--vikrsomhetsnavn-->
+                <n1:TIN>310190020</n1:TIN>                <!--lokalt orgnummer-->
+                <n1:Role>GIR401</n1:Role>                <!--konsernenhet som fyller ut info om suppleringsskatt 403-konstituert/402-local/401-designert -->
+            </n1:FilingCE>
+            <n1:AccountingInfo>
+                <n1:CFSofUPE>GIR501</n1:CFSofUPE>                <!--Renskapsinfo subparagraph a,b,c,d av Article 10 for UPE , ultimate parrent entity(konsernspiss)-->
+                <n1:FAS>FAS tekst</n1:FAS>                <!--Financial access survey ? 200char max-->
+                <Currency>USD</Currency>
+            </n1:AccountingInfo>
+            <n1:Period>
+                <n1:Start>2024-01-01</n1:Start><!-- regnskapsår start-->
+                <n1:End>2024-12-31</n1:End>                <!-- regnskapsår slutt-->
+            </n1:Period>
+            <n1:NameMNE>Testkonsern</n1:NameMNE>            <!-- multinational enterprise group navn-->
+            <n1:DocSpec>
+                <n2:DocTypeIndic>OECD1</n2:DocTypeIndic>                <!--hvilken type data dette er ny/rettet/slettet/test satt som nyTESTdata i denne-->
+                <n2:DocRefId>ca239768-9723-46c2-99f3-1df9f6696f0f
+                </n2:DocRefId>                <!--refid som sender har gitt for denne biten av dokumentet FilingInfo-->
+            </n1:DocSpec>
+        </n1:FilingInfo>
+        <n1:GeneralSection>
+            <RecJurCode>NO</RecJurCode>
+            <RecJurCode>BE</RecJurCode>
+            <RecJurCode>SE</RecJurCode>
+            <RecJurCode>DE</RecJurCode>
+            <RecJurCode>DK</RecJurCode>
+
+            <n1:CorporateStructure>
+                <n1:UPE>                    <!-- Ultimate overordnet enhet-->
+                    <OtherUPE>
+                        <n1:ID>
+                            <n1:Name>Testkonsern ASA</n1:Name>
+                            <n1:ResCountryCode>NO</n1:ResCountryCode>                        <!-- landkode-->
+                            <n1:TIN>310190020</n1:TIN>                        <!-- Orgnummer-->
+                            <n1:Rules>GIR204</n1:Rules>                        <!--QDMTT valgt  -->
+                            <GlobeStatus>GIR301</GlobeStatus>  <!--Status Globe Purpose CE -->
+                        </n1:ID>
+                    </OtherUPE>
+
+                </n1:UPE>
+                <n1:CE>                    <!--konstituerende enhet/underselskap til UPE vi kan ha mange slike som peker oppover      og nedover i ett tre lik struktur  -->
+                    <n1:ID>
+                        <n1:Name>VRIEN BRA TIGER AS</n1:Name>
+                        <n1:ResCountryCode>NO</n1:ResCountryCode>
+                        <n1:TIN>313360229</n1:TIN>
+                        <n1:Rules>GIR204</n1:Rules>    <!--QDMTT valgt  -->
+                        <n1:GlobeStatus>GIR301</n1:GlobeStatus> <!--Status Globe Purpose CE -->
+                    </n1:ID>
+                    <n1:Ownership>
+                        <n1:OwnershipType>GIR801</n1:OwnershipType>  <!-- Eierskapstype : 801 UPE -->
+                        <n1:TIN>310190020</n1:TIN>                        <!-- den som eier selskapet -->
+                        <n1:OwnershipPercentage>0.9999</n1:OwnershipPercentage>                        <!-- hvor mye de eier-->
+                    </n1:Ownership>
+                    <n1:QUTPR>
+                        <n1:Art9.3>false
+                        </n1:Art9.3>                        <!--unntakt fra suppleringsskatt hvis i oppstartfasen-->
+                    </n1:QUTPR>
+                </n1:CE>
+                <n1:CE>                    <!--konstituerende enhet/underselskap til UPE vi kan ha mange slike som peker oppover      og nedover i ett tre lik struktur  -->
+                    <n1:ID>
+                        <n1:Name>FUNKSJONELL FALSK KATT BØRSTE</n1:Name>
+                        <n1:ResCountryCode>NO</n1:ResCountryCode>
+                        <n1:TIN>310161659</n1:TIN>
+                        <n1:Rules>GIR204</n1:Rules>    <!--QDMTT valgt  -->
+                        <n1:GlobeStatus>GIR301</n1:GlobeStatus> <!--Status Globe Purpose CE -->
+                    </n1:ID>
+                    <n1:Ownership>
+                        <n1:OwnershipType>GIR801</n1:OwnershipType>  <!-- Eierskapstype : 801 UPE -->
+                        <n1:TIN>310190020</n1:TIN>                        <!-- den som eier selskapet -->
+                        <n1:OwnershipPercentage>0.9999</n1:OwnershipPercentage>                        <!-- hvor mye de eier-->
+                    </n1:Ownership>
+                    <n1:QUTPR>
+                        <n1:Art9.3>false
+                        </n1:Art9.3>                        <!--unntakt fra suppleringsskatt hvis i oppstartfasen-->
+                    </n1:QUTPR>
+                </n1:CE>
+                <n1:CE>                    <!--konstituerende enhet/underselskap til UPE vi kan ha mange slike som peker oppover      og nedover i ett tre lik struktur  -->
+                    <n1:ID>
+                        <n1:Name>ELASTISK UMUSIKALSK TIGER AS</n1:Name>
+                        <n1:ResCountryCode>NO</n1:ResCountryCode>
+                        <n1:TIN>314095936</n1:TIN>
+                        <n1:Rules>GIR204</n1:Rules>    <!--QDMTT valgt  -->
+                        <n1:GlobeStatus>GIR306</n1:GlobeStatus> <!--Status Globe Purpose MainEntity -->
+                    </n1:ID>
+                    <n1:Ownership>
+                        <n1:OwnershipType>GIR802</n1:OwnershipType>  <!-- Eierskapstype : 802 CE -->
+                        <n1:TIN>310161659</n1:TIN>                        <!-- den som eier selskapet -->
+                        <n1:OwnershipPercentage>0.9999</n1:OwnershipPercentage>                        <!-- hvor mye de eier-->
+                    </n1:Ownership>
+                    <n1:QUTPR>
+                        <n1:Art9.3>false
+                        </n1:Art9.3>                        <!--unntakt fra suppleringsskatt hvis i oppstartfasen-->
+                    </n1:QUTPR>
+                </n1:CE>
+                <n1:CE>                    <!--konstituerende enhet/underselskap til UPE vi kan ha mange slike som peker oppover      og nedover i ett tre lik struktur  -->
+                    <n1:ID>
+                        <n1:Name>Syrran AB</n1:Name>
+                        <n1:ResCountryCode>SE</n1:ResCountryCode>
+                        <n1:TIN>123 123 333</n1:TIN>
+                        <n1:Rules>GIR201</n1:Rules>    <!--QIIR valgt  -->
+                        <n1:GlobeStatus>GIR301</n1:GlobeStatus> <!--Status Globe Constituent Entity -->
+                    </n1:ID>
+                    <n1:Ownership>
+                        <n1:OwnershipType>GIR801</n1:OwnershipType>  <!-- Eierskapstype : 801 UPE -->
+                        <n1:TIN>310 190 020</n1:TIN>                        <!-- den som eier selskapet -->
+                        <n1:OwnershipPercentage>0.9999</n1:OwnershipPercentage>                        <!-- hvor mye de eier-->
+                    </n1:Ownership>
+                    <n1:QUTPR>
+                        <n1:Art9.3>false
+                        </n1:Art9.3>                        <!--unntakt fra suppleringsskatt hvis i oppstartfasen-->
+                    </n1:QUTPR>
+                </n1:CE>
+                <n1:CE>                    <!--konstituerende enhet/underselskap til UPE vi kan ha mange slike som peker oppover      og nedover i ett tre lik struktur  -->
+                    <n1:ID>
+                        <n1:Name>Brorsan AB</n1:Name>
+                        <n1:ResCountryCode>SE</n1:ResCountryCode>
+                        <n1:TIN>123 123 444</n1:TIN>
+                        <n1:Rules>GIR201</n1:Rules>    <!--QIIR valgt  -->
+                        <n1:GlobeStatus>GIR301</n1:GlobeStatus> <!--Status Globe Constituent Entity -->
+                    </n1:ID>
+                    <n1:Ownership>
+                        <n1:OwnershipType>GIR801</n1:OwnershipType>  <!-- Eierskapstype : 801 UPE -->
+                        <n1:TIN>310 190 020</n1:TIN>                        <!-- den som eier selskapet -->
+                        <n1:OwnershipPercentage>0.9999</n1:OwnershipPercentage>                        <!-- hvor mye de eier-->
+                    </n1:Ownership>
+                    <n1:QUTPR>
+                        <n1:Art9.3>false
+                        </n1:Art9.3>                        <!--unntakt fra suppleringsskatt hvis i oppstartfasen-->
+                    </n1:QUTPR>
+                </n1:CE>
+                <n1:CE>                    <!--konstituerende enhet/underselskap til UPE vi kan ha mange slike som peker oppover      og nedover i ett tre lik struktur  -->
+                    <n1:ID>
+                        <n1:Name>Berlin GmbH</n1:Name>
+                        <n1:ResCountryCode>DE</n1:ResCountryCode>
+                        <n1:TIN>222 001 002</n1:TIN>
+                        <n1:Rules>GIR201</n1:Rules>    <!--QIIR valgt  -->
+                        <n1:GlobeStatus>GIR301</n1:GlobeStatus> <!--Status Globe Constituent Entity -->
+                    </n1:ID>
+                    <n1:Ownership>
+                        <n1:OwnershipType>GIR801</n1:OwnershipType>  <!-- Eierskapstype : 801 UPE -->
+                        <n1:TIN>310 190 020</n1:TIN>                        <!-- den som eier selskapet -->
+                        <n1:OwnershipPercentage>0.9999</n1:OwnershipPercentage>                        <!-- hvor mye de eier-->
+                    </n1:Ownership>
+                    <n1:QUTPR>
+                        <n1:Art9.3>false
+                        </n1:Art9.3>                        <!--unntakt fra suppleringsskatt hvis i oppstartfasen-->
+                    </n1:QUTPR>
+                </n1:CE>
+                <n1:CE>                    <!--konstituerende enhet/underselskap til UPE vi kan ha mange slike som peker oppover      og nedover i ett tre lik struktur  -->
+                    <n1:ID>
+                        <n1:Name>Bonn GmbH</n1:Name>
+                        <n1:ResCountryCode>DE</n1:ResCountryCode>
+                        <n1:TIN>222 002 233</n1:TIN>
+                        <n1:Rules>GIR201</n1:Rules>    <!--QIIR valgt  -->
+                        <n1:GlobeStatus>GIR301</n1:GlobeStatus> <!--Status Globe Constituent Entity -->
+                    </n1:ID>
+                    <n1:Ownership>
+                        <n1:OwnershipType>GIR801</n1:OwnershipType>  <!-- Eierskapstype : 801 UPE -->
+                        <n1:TIN>310 190 020</n1:TIN>                        <!-- den som eier selskapet -->
+                        <n1:OwnershipPercentage>0.9999</n1:OwnershipPercentage>                        <!-- hvor mye de eier-->
+                    </n1:Ownership>
+                    <n1:QUTPR>
+                        <n1:Art9.3>false
+                        </n1:Art9.3>                        <!--unntakt fra suppleringsskatt hvis i oppstartfasen-->
+                    </n1:QUTPR>
+                </n1:CE>
+                <n1:CE>                    <!--konstituerende enhet/underselskap til UPE vi kan ha mange slike som peker oppover      og nedover i ett tre lik struktur  -->
+                    <n1:ID>
+                        <n1:Name>Antwerpen</n1:Name>
+                        <n1:ResCountryCode>BE</n1:ResCountryCode>
+                        <n1:TIN>333 550 999</n1:TIN>
+                        <n1:Rules>GIR201</n1:Rules>    <!--QIIR valgt  -->
+                        <n1:GlobeStatus>GIR301</n1:GlobeStatus> <!--Status Globe Constituent Entity -->
+                    </n1:ID>
+                    <n1:Ownership>
+                        <n1:OwnershipType>GIR801</n1:OwnershipType>  <!-- Eierskapstype : 801 UPE -->
+                        <n1:TIN>310 190 020</n1:TIN>                        <!-- den som eier selskapet -->
+                        <n1:OwnershipPercentage>0.9999</n1:OwnershipPercentage>                        <!-- hvor mye de eier-->
+                    </n1:Ownership>
+                    <n1:QUTPR>
+                        <n1:Art9.3>false
+                        </n1:Art9.3>                        <!--unntakt fra suppleringsskatt hvis i oppstartfasen-->
+                    </n1:QUTPR>
+                </n1:CE>
+                <n1:CE>                    <!--konstituerende enhet/underselskap til UPE vi kan ha mange slike som peker oppover      og nedover i ett tre lik struktur  -->
+                    <n1:ID>
+                        <n1:Name>Liege</n1:Name>
+                        <n1:ResCountryCode>BE</n1:ResCountryCode>
+                        <n1:TIN>333 600 888</n1:TIN>
+                        <n1:Rules>GIR201</n1:Rules>    <!--QIIR valgt  -->
+                        <n1:GlobeStatus>GIR301</n1:GlobeStatus> <!--Status Globe Constituent Entity -->
+                    </n1:ID>
+                    <n1:Ownership>
+                        <n1:OwnershipType>GIR801</n1:OwnershipType>  <!-- Eierskapstype : 801 UPE -->
+                        <n1:TIN>310 190 020</n1:TIN>                        <!-- den som eier selskapet -->
+                        <n1:OwnershipPercentage>0.9999</n1:OwnershipPercentage>                        <!-- hvor mye de eier-->
+                    </n1:Ownership>
+                    <n1:QUTPR>
+                        <n1:Art9.3>false
+                        </n1:Art9.3>                        <!--unntakt fra suppleringsskatt hvis i oppstartfasen-->
+                    </n1:QUTPR>
+                </n1:CE>
+                <n1:CE>                    <!--konstituerende enhet/underselskap til UPE vi kan ha mange slike som peker oppover      og nedover i ett tre lik struktur  -->
+                    <n1:ID>
+                        <n1:Name>Trøst AS Filial</n1:Name>
+                        <n1:ResCountryCode>BE</n1:ResCountryCode>
+                        <n1:TIN>333 110 099</n1:TIN>
+                        <n1:Rules>GIR201</n1:Rules>    <!--QIIR valgt  -->
+                        <n1:GlobeStatus>GIR301</n1:GlobeStatus> <!--Status Globe Constituent Entity -->
+                    </n1:ID>
+                    <n1:Ownership>
+                        <n1:OwnershipType>GIR801</n1:OwnershipType>  <!-- Eierskapstype : 801 UPE -->
+                        <n1:TIN>310 190 020</n1:TIN>                        <!-- den som eier selskapet -->
+                        <n1:OwnershipPercentage>0.9999</n1:OwnershipPercentage>                        <!-- hvor mye de eier-->
+                    </n1:Ownership>
+                    <n1:QUTPR>
+                        <n1:Art9.3>false
+                        </n1:Art9.3>                        <!--unntakt fra suppleringsskatt hvis i oppstartfasen-->
+                    </n1:QUTPR>
+                </n1:CE>
+            </n1:CorporateStructure>
+            <n1:DocSpec>                <!-- Type doc for denne delen -->
+                <n2:DocTypeIndic>OECD1</n2:DocTypeIndic>                <!--hvilken type data dette er ny/rettet/slettet/test satt som nyTESTdata i denne-->
+                <n2:DocRefId>ccab3bc6-3b2f-4093-a7ac-9fc035df16ed
+                </n2:DocRefId>                <!--refid som sender har gitt for denne biten av dokumentet Corporate structure + summary -->
+            </n1:DocSpec>
+        </n1:GeneralSection>
+        <n1:Summary> <!--Lager 1 Summary per Jurwithtaxingright pga SFH regler ulike : NO -->
+            <RecJurCode>UZ</RecJurCode>
+            <Jurisdiction></Jurisdiction> <!--ingen subgroups så denne står blank -->
+            <JurWithTaxingRights><JurisdictionName>NO</JurisdictionName></JurWithTaxingRights>
+            <JurWithTaxingRights><JurisdictionName>BE</JurisdictionName></JurWithTaxingRights>
+            <JurWithTaxingRights><JurisdictionName>SE</JurisdictionName></JurWithTaxingRights>
+            <JurWithTaxingRights><JurisdictionName>DE</JurisdictionName></JurWithTaxingRights>
+            <JurWithTaxingRights><JurisdictionName>DK</JurisdictionName></JurWithTaxingRights>
+            <SafeHarbour>GIR1202</SafeHarbour> <!--2.2.1.1.1 Matcher SFH i del 2 D. QDMTT SH-->
+            <n1:ETRRange>GIR1303</n1:ETRRange>                <!-- Note 1.4.6 GIR1303: 5% or above but below 7.5% -->
+           
+            <SBIE>
+                <NotApplicable>false</NotApplicable>
+                <NoTut>false</NoTut>
+            </SBIE>
+            <n1:GLoBETut>GIR1502</n1:GLoBETut>                <!--topup tax each jurisdiction-->
+            <DocSpec>
+                <n2:DocTypeIndic>OECD1</n2:DocTypeIndic>
+                <n2:DocRefId>e9956bcc-8b82-48ae-8280-b76024ac0a1b</n2:DocRefId>
+            </DocSpec>
+        </n1:Summary>
+        <n1:JurisdictionSection>   <!--Norge -->
+            <n1:RecJurCode>NO</n1:RecJurCode>            <!--Mottaker av hver av Jurisdiction sections -->
+            <n1:Jurisdiction>NO</n1:Jurisdiction>            <!--Den jurisdiction det gjelder -->
+            <n1:GLoBETax>
+                <ETR>                <!--Effective tax rate -->
+                    <ETRStatus>
+                        <ETRComputation>
+                            <CEComputation>
+                                <AdjustedFANIL>
+                                    <Total>108800000</Total>
+                                    <FANIL>100000000</FANIL>
+                                </AdjustedFANIL>
+                                <NetGlobeIncome>
+                                    <Total>8800000</Total> <!--3.2.1.1.3 ? -->
+                                    <Adjustments>
+                                        <Amount>8800000</Amount>
+                                        <AdjustmentItem>GIR2001</AdjustmentItem>
+                                    </Adjustments>
+                                </NetGlobeIncome>
+                                <AdjustedIncomeTax>
+                                    <Total>0</Total>
+                                    <IncomeTax>0</IncomeTax>
+                                </AdjustedIncomeTax>
+                                <AdjustedCoveredTax>
+                                    <Total>8800000</Total>
+                                    <Adjustments>
+                                        <Amount>8800000</Amount>
+                                        <AdjustmentItem>GIR2401</AdjustmentItem>
+                                    </Adjustments>
+                                    <DeferTaxAdjustAmt>
+                                        <Total>0</Total>
+                                        <DeferTaxExpense>0</DeferTaxExpense>
+                                    </DeferTaxAdjustAmt>
+                                </AdjustedCoveredTax>
+                                <TIN>313360229</TIN>
+                            </CEComputation>
+                            <CEComputation>
+                                <AdjustedFANIL>
+                                    <Total>32090000</Total>
+                                    <FANIL>29900000</FANIL>
+                                    <Adjustment>
+                                        <MainEntityPEandFTE>
+                                            <Basis>GIR1701</Basis>
+                                            <OtherTIN>333 550 999</OtherTIN> <!--BE selskap-->
+                                            <ResCountryCode>BE</ResCountryCode>
+                                            <Additions>0</Additions>
+                                            <Reductions>100000</Reductions>
+                                        </MainEntityPEandFTE>
+                                    </Adjustment>
+                                </AdjustedFANIL>
+                                <NetGlobeIncome>
+                                    <Total>2190000</Total> <!--3.2.1.1.3 ? -->
+                                    <Adjustments>
+                                        <Amount>2190000</Amount>
+                                        <AdjustmentItem>GIR2001</AdjustmentItem>
+                                    </Adjustments>
+                                </NetGlobeIncome>
+                                <AdjustedIncomeTax>
+                                    <Total>2200000</Total>
+                                    <IncomeTax>2190000</IncomeTax>
+                                    <CrossAllocation>
+                                        <Basis>GIR2306</Basis>
+                                        <OtherTIN>333 550 999</OtherTIN>
+                                        <ResCountryCode>BE</ResCountryCode>
+                                        <Additions>0</Additions>
+                                        <Reductions>10000</Reductions>
+                                    </CrossAllocation>
+                                </AdjustedIncomeTax>
+                                <AdjustedCoveredTax>
+                                    <Total>2190000</Total>
+                                    <Adjustments>
+                                        <Amount>2190000</Amount>
+                                        <AdjustmentItem>GIR2401</AdjustmentItem>
+                                    </Adjustments>
+                                    <DeferTaxAdjustAmt>
+                                        <Total>0</Total>
+                                        <DeferTaxExpense>0</DeferTaxExpense>
+                                    </DeferTaxAdjustAmt>
+                                </AdjustedCoveredTax>
+                                <TIN>314095936</TIN>
+                            </CEComputation>
+                            <CEComputation>
+                                <AdjustedFANIL>
+                                    <Total>0</Total>
+                                    <FANIL>0</FANIL>
+                                </AdjustedFANIL>
+                                <NetGlobeIncome>
+                                    <Total>0</Total> <!--3.2.1.1.3 ? -->
+                                </NetGlobeIncome>
+                                <AdjustedIncomeTax>
+                                    <Total>0</Total>
+                                    <IncomeTax>0</IncomeTax>
+                                </AdjustedIncomeTax>
+                                <AdjustedCoveredTax>
+                                    <Total>0</Total>
+                                    <DeferTaxAdjustAmt>
+                                        <Total>0</Total>
+                                        <DeferTaxExpense>0</DeferTaxExpense>
+                                    </DeferTaxAdjustAmt>
+                                </AdjustedCoveredTax>
+                                <TIN>310161659</TIN> <!--denne har ingen data definert i del1 ? -->
+                            </CEComputation>
+                            <OverallComputation>
+                                <FANIL>0</FANIL>
+                                <AdjustedFANIL>130000000</AdjustedFANIL>
+                                <NetGlobeIncome>
+                                    <Total>140900000</Total>
+                                </NetGlobeIncome>
+                                <IncomeTaxExpense>11000000</IncomeTaxExpense>
+                                <ETRRate>0.0780</ETRRate>
+                                <TopUpTaxPercentage>0.0720</TopUpTaxPercentage>
+                                <AdjustedCoveredTax>
+                                    <Total>10990000</Total>
+                                    <AggregrateCurrentTax>0</AggregrateCurrentTax>
+                                </AdjustedCoveredTax>
+                                <SubstanceExclusion> <!--Antar at denne er 3.4.1-->
+                                    <Total>3020000</Total>
+                                    <PayrollCost>15000000</PayrollCost>
+                                    <PayrollMarkUp>0.010</PayrollMarkUp>
+                                    <TangibleAssetValue>19000000</TangibleAssetValue>
+                                    <TangibleAssetMarkup>0.8</TangibleAssetMarkup>
+                                    <PEAllocation>
+                                        <JurOfOwners>
+                                            <ResCountryCode>NO</ResCountryCode>
+                                        </JurOfOwners>
+                                        <PayrollCost>
+                                            <Total>0</Total>
+                                            <Allocation>0</Allocation>
+                                        </PayrollCost>
+                                        <TangibleAssetValue>
+                                            <Total>0</Total>
+                                            <Allocation>0</Allocation>
+                                        </TangibleAssetValue>
+                                    </PEAllocation>
+                                    <FTEAllocation>
+                                        <JurOfOwners>
+                                            <ResCountryCode>NO</ResCountryCode>
+                                        </JurOfOwners>
+                                        <PayrollCost>
+                                            <Total>0</Total>
+                                            <Allocation>0</Allocation>
+                                        </PayrollCost>
+                                        <TangibleAssetValue>
+                                            <Total>0</Total>
+                                            <Allocation>0</Allocation>
+                                        </TangibleAssetValue>
+                                    </FTEAllocation>
+                                </SubstanceExclusion>
+                                <ExcessProfits>137870000</ExcessProfits>
+                                <QDMTT>
+                                    <FAS>0</FAS>
+                                    <Amount>0</Amount>
+                                    <BasisforBlending>0</BasisforBlending>
+                                    <SBIEAvailable>0</SBIEAvailable>
+                                    <DeMinAvailable>0</DeMinAvailable>
+                                    <Currency>USD</Currency>
+                                </QDMTT>
+                                <TopUpTax>9926640</TopUpTax>
+                                <ExcessNegTaxExpense>
+                                    <PriorYearBalance>1000</PriorYearBalance>
+                                    <GeneratedInRFY>12344</GeneratedInRFY>
+                                    <UtilizedInRFY>54545</UtilizedInRFY>
+                                    <Remaining>5464</Remaining>
+                                </ExcessNegTaxExpense>
+                            </OverallComputation>
+                        </ETRComputation>
+                    </ETRStatus>
+                </ETR>
+            </n1:GLoBETax>
+            <n1:LowTaxJurisdiction>
+                <n1:TopUpTaxAmount>0</n1:TopUpTaxAmount> <!--hva skal det stå her ? -->
+                <n1:LTCE>
+                    <n1:TIN>313360229</n1:TIN>
+                    <IIR>
+                        <TopUpTax>0</TopUpTax>
+                    </IIR>
+                </n1:LTCE>
+                <LTCE>
+                    <TIN>314095936</TIN>
+                    <IIR>
+                        <TopUpTax>0</TopUpTax>
+                    </IIR>
+                </LTCE>
+            </n1:LowTaxJurisdiction>
+            <n1:DocSpec>
+                <n2:DocTypeIndic>OECD1</n2:DocTypeIndic>
+                <n2:DocRefId>c49566ad-739e-4856-9a0e-79f60271a645</n2:DocRefId>
+            </n1:DocSpec>
+        </n1:JurisdictionSection>
+        <n1:JurisdictionSection>   <!--Belgia -->
+            <n1:RecJurCode>BE</n1:RecJurCode>            <!--Mottaker av hver av Jurisdiction sections -->
+            <n1:Jurisdiction>BE</n1:Jurisdiction>            <!--Den jurisdiction det gjelder -->
+            <n1:GLoBETax>
+                <ETR>
+                    <ETRStatus>
+                        <ETRComputation>
+                            <CEComputation> <!--Belgia enhet 1 -->
+                                <AdjustedFANIL>
+                                    <Total>50000000</Total>
+                                    <FANIL>45000000</FANIL>
+                                </AdjustedFANIL>
+                                <NetGlobeIncome>
+                                    <Total>5000000</Total> <!--3.2.1.1.3 ? -->
+                                </NetGlobeIncome>
+                                <AdjustedIncomeTax>
+                                    <Total>0</Total>
+                                    <IncomeTax>0</IncomeTax>
+                                </AdjustedIncomeTax>
+                                <AdjustedCoveredTax>
+                                    <Total>8800000</Total>
+                                    <Adjustments>
+                                        <Amount>8800000</Amount>
+                                        <AdjustmentItem>GIR2401</AdjustmentItem>
+                                    </Adjustments>
+                                    <DeferTaxAdjustAmt>
+                                        <Total>0</Total>
+                                        <DeferTaxExpense>0</DeferTaxExpense>
+                                    </DeferTaxAdjustAmt>
+                                </AdjustedCoveredTax>
+                                <TIN>333550999</TIN>
+                            </CEComputation>
+                            <CEComputation> <!--Belgia enhet 2 -->
+                                <AdjustedFANIL>
+                                    <Total>10000000</Total>
+                                    <FANIL>9000000</FANIL>
+                                </AdjustedFANIL>
+                                <NetGlobeIncome>
+                                    <Total>1000000</Total> <!--3.2.1.1.3 ? -->
+                                </NetGlobeIncome>
+                                <AdjustedIncomeTax>
+                                    <Total>0</Total>
+                                    <IncomeTax>0</IncomeTax>
+                                </AdjustedIncomeTax>
+                                <AdjustedCoveredTax>
+                                    <Total>8800000</Total>
+                                    <Adjustments>
+                                        <Amount>8800000</Amount>
+                                        <AdjustmentItem>GIR2401</AdjustmentItem>
+                                    </Adjustments>
+                                    <DeferTaxAdjustAmt>
+                                        <Total>0</Total>
+                                        <DeferTaxExpense>9876543</DeferTaxExpense>
+                                    </DeferTaxAdjustAmt>
+                                </AdjustedCoveredTax>
+                                <TIN>333600888</TIN>
+                            </CEComputation>
+                            <CEComputation> <!--Belgia enhet 3 -->
+                                <AdjustedFANIL>
+                                    <Total>100000</Total>
+                                    <FANIL>100000</FANIL>
+                                    <Adjustment>
+                                        <MainEntityPEandFTE>
+                                            <Basis>GIR1701</Basis>
+                                            <OtherTIN>314095936</OtherTIN>
+                                            <ResCountryCode>NO</ResCountryCode>
+                                            <Additions>100000</Additions>
+                                            <Reductions>0</Reductions>
+                                        </MainEntityPEandFTE>
+                                    </Adjustment>
+                                </AdjustedFANIL>
+                                <NetGlobeIncome>
+                                    <Total>1000000</Total> <!--3.2.1.1.3 ? -->
+                                </NetGlobeIncome>
+                                <AdjustedIncomeTax>
+                                    <Total>10000</Total>
+                                    <IncomeTax>0</IncomeTax>
+                                    <CrossAllocation>
+                                        <Basis>GIR2301</Basis> <!--GIR2301 valgt der et 4.3.2(a) -->
+                                        <OtherTIN>333110099</OtherTIN>
+                                        <ResCountryCode>NO</ResCountryCode>
+                                        <Additions>10000</Additions>
+                                        <Reductions>0</Reductions>
+                                    </CrossAllocation>
+                                </AdjustedIncomeTax>
+                                <AdjustedCoveredTax>
+                                    <Total>10000</Total>
+                                    <Adjustments>
+                                        <Amount>10000</Amount>
+                                        <AdjustmentItem>GIR2401</AdjustmentItem> <!--usikker på om denne er riktig finner ikke 4.3 i denne type listen GIR2401 -->
+                                    </Adjustments>
+                                    <DeferTaxAdjustAmt>
+                                        <Total>0</Total>
+                                        <DeferTaxExpense>987654</DeferTaxExpense>
+                                    </DeferTaxAdjustAmt>
+                                </AdjustedCoveredTax>
+                                <TIN>333110099</TIN>
+                            </CEComputation>
+                            <OverallComputation>
+                                <FANIL>54100000</FANIL>
+                                <AdjustedFANIL>54100000</AdjustedFANIL>
+                                <NetGlobeIncome>
+                                    <Total>60100000</Total>
+                                </NetGlobeIncome>
+                                <IncomeTaxExpense>6000000</IncomeTaxExpense>
+                                <ETRRate>0.0998</ETRRate>
+                                <TopUpTaxPercentage>0.0502</TopUpTaxPercentage>
+                                <AdjustedCoveredTax>
+                                    <Total>6000000</Total>
+                                    <AggregrateCurrentTax>9876543</AggregrateCurrentTax>
+                                </AdjustedCoveredTax>
+                                <SubstanceExclusion> <!--Antar at denne er 3.4.1-->
+                                    <Total>3020000</Total>
+                                    <PayrollCost>15000000</PayrollCost>
+                                    <PayrollMarkUp>0.10</PayrollMarkUp>
+                                    <TangibleAssetValue>19000000</TangibleAssetValue>
+                                    <TangibleAssetMarkup>0.8</TangibleAssetMarkup>
+                                    <PEAllocation>
+                                        <JurOfOwners>
+                                            <ResCountryCode>NO</ResCountryCode>
+                                        </JurOfOwners>
+                                        <PayrollCost>
+                                            <Total>0</Total>
+                                            <Allocation>0</Allocation>
+                                        </PayrollCost>
+                                        <TangibleAssetValue>
+                                            <Total>0</Total>
+                                            <Allocation>0</Allocation>
+                                        </TangibleAssetValue>
+                                    </PEAllocation>
+                                    <FTEAllocation>
+                                        <JurOfOwners>
+                                            <ResCountryCode>NO</ResCountryCode>
+                                        </JurOfOwners>
+                                        <PayrollCost>
+                                            <Total>0</Total>
+                                            <Allocation>0</Allocation>
+                                        </PayrollCost>
+                                        <TangibleAssetValue>
+                                            <Total>0</Total>
+                                            <Allocation>0</Allocation>
+                                        </TangibleAssetValue>
+                                    </FTEAllocation>
+                                </SubstanceExclusion>
+                                <ExcessProfits>60100000</ExcessProfits>
+                                <QDMTT>
+                                    <FAS>0</FAS>
+                                    <Amount>0</Amount>
+                                    <BasisforBlending>0</BasisforBlending>
+                                    <SBIEAvailable>0</SBIEAvailable>
+                                    <DeMinAvailable>0</DeMinAvailable>
+                                    <Currency>NOK</Currency>
+                                </QDMTT>
+                                <TopUpTax>3017020</TopUpTax>
+                                <ExcessNegTaxExpense>
+                                    <PriorYearBalance>1000</PriorYearBalance>
+                                    <GeneratedInRFY>12344</GeneratedInRFY>
+                                    <UtilizedInRFY>54545</UtilizedInRFY>
+                                    <Remaining>5464</Remaining>
+                                </ExcessNegTaxExpense>
+                            </OverallComputation>
+                        </ETRComputation>
+                    </ETRStatus>
+                </ETR>
+            </n1:GLoBETax>
+            <LowTaxJurisdiction>
+                <TopUpTaxAmount>0</TopUpTaxAmount> <!--hva skal det stå her ? -->
+                <LTCE>
+                    <TIN>333 550 999</TIN>
+                    <IIR>
+                        <TopUpTax>123</TopUpTax>
+                    </IIR>
+                </LTCE>
+                <LTCE>
+                    <TIN>333 600 888</TIN>
+                    <IIR>
+                        <TopUpTax>123</TopUpTax>
+                    </IIR>
+                </LTCE>
+                <LTCE>
+                    <TIN>333 110 099</TIN>
+                    <IIR>
+                        <TopUpTax>123</TopUpTax>
+                    </IIR>
+                </LTCE>
+            </LowTaxJurisdiction>
+            <n1:DocSpec>
+                <n2:DocTypeIndic>OECD1</n2:DocTypeIndic>
+                <n2:DocRefId>c49566ad-739e-4856-9a0e-79f60271a645</n2:DocRefId>
+            </n1:DocSpec>
+        </n1:JurisdictionSection>
+        <n1:JurisdictionSection>            <!--Sverige-->
+            <n1:RecJurCode>SE</n1:RecJurCode>            <!--Mottaker av hver av Jurisdiction sections -->
+            <n1:Jurisdiction>SE</n1:Jurisdiction>            <!--Den jurisdiction det gjelder -->
+            <n1:GLoBETax>
+                <n1:ETR>
+                    <n1:ETRStatus>
+                        <ETRException> <!--enten ETRException eller ETRComputation-->
+                            <TransitionalCbCRSafeHarbour> <!--2.2.1.3.a Transitional safe harbour-->
+                                <Revenue>7600000</Revenue>
+                                <Profit>150000</Profit>
+                                <IncomeTax>0</IncomeTax>
+                            </TransitionalCbCRSafeHarbour>
+                        </ETRException>
+                    </n1:ETRStatus>
+                </n1:ETR>
+            </n1:GLoBETax>
+            <n1:DocSpec>
+                <n2:DocTypeIndic>OECD1</n2:DocTypeIndic>
+                <n2:DocRefId>c49566ad-739e-4856-9a0e-79f60271a645</n2:DocRefId>
+            </n1:DocSpec>
+        </n1:JurisdictionSection>
+        <n1:JurisdictionSection>            <!--Tyskland-->
+            <n1:RecJurCode>DE</n1:RecJurCode>            <!--Mottaker av hver av Jurisdiction sections -->
+            <n1:Jurisdiction>DE</n1:Jurisdiction>            <!--Den jurisdiction det gjelder -->
+            <n1:GLoBETax>
+                <n1:ETR>
+                    <n1:ETRStatus>
+                        <ETRException> <!--Denne er choice , enten ETRException eller ETRComputation-->
+                            <TransitionalCbCRSafeHarbour> <!--2.2.1.3.a Transitional safe harbour-->
+                                <Revenue>0</Revenue>
+                                <Profit>4000000</Profit>
+                                <IncomeTax>800000</IncomeTax>
+                            </TransitionalCbCRSafeHarbour>
+                        </ETRException>
+                    </n1:ETRStatus>
+                </n1:ETR>
+            </n1:GLoBETax>
+            <n1:DocSpec>
+                <n2:DocTypeIndic>OECD1</n2:DocTypeIndic>
+                <n2:DocRefId>c49566ad-739e-4856-9a0e-79f60271a645</n2:DocRefId>
+            </n1:DocSpec>
+        </n1:JurisdictionSection>
+        <n1:JurisdictionSection>            <!--Danmark-->
+            <n1:RecJurCode>DK</n1:RecJurCode>
+            <n1:Jurisdiction>DK</n1:Jurisdiction>
+            <n1:GLoBETax>
+                <n1:ETR>
+                    <n1:ETRStatus>
+                        <ETRComputation>
+                            <CEComputation>
+                                <AdjustedFANIL>
+                                    <Total>0</Total>
+                                    <FANIL>0</FANIL>
+                                </AdjustedFANIL>
+                                <NetGlobeIncome>
+                                    <Total>0</Total>
+                                </NetGlobeIncome>
+                                <AdjustedIncomeTax>
+                                    <Total>0</Total>
+                                    <IncomeTax>0</IncomeTax>
+                                </AdjustedIncomeTax>
+                                <AdjustedCoveredTax>
+                                    <Total>0</Total>
+                                    <DeferTaxAdjustAmt>
+                                        <Total>0</Total>
+                                        <DeferTaxExpense>987654</DeferTaxExpense>
+                                    </DeferTaxAdjustAmt>
+                                </AdjustedCoveredTax>
+                                <TIN>0</TIN>
+                            </CEComputation>
+
+                            <OverallComputation>
+<FANIL>0</FANIL>
+                                <AdjustedFANIL>0</AdjustedFANIL>
+
+                                <NetGlobeIncome>
+                                    <Total>0</Total>
+                                </NetGlobeIncome>
+                                <IncomeTaxExpense>0</IncomeTaxExpense>
+                                <ETRRate>00.00</ETRRate>
+                                <TopUpTaxPercentage>00.00</TopUpTaxPercentage>
+                                <AdjustedCoveredTax>
+                                    <Total>0</Total>
+                                    <AggregrateCurrentTax>0</AggregrateCurrentTax>
+                                </AdjustedCoveredTax>
+                                <SubstanceExclusion>
+                                    <Total>5090200</Total>
+                                    <PayrollCost>5090200</PayrollCost>
+                                    <PayrollMarkUp>0.10</PayrollMarkUp>
+                                    <TangibleAssetValue>75000000</TangibleAssetValue>
+                                    <TangibleAssetMarkup>0.8</TangibleAssetMarkup>
+                                    <PEAllocation>
+                                        <JurOfOwners>
+                                            <ResCountryCode>DK</ResCountryCode>
+                                        </JurOfOwners>
+                                        <PayrollCost>
+                                            <Total>0</Total>
+                                            <Allocation>0</Allocation>
+                                        </PayrollCost>
+                                        <TangibleAssetValue>
+                                            <Total>0</Total>
+                                            <Allocation>0</Allocation>
+                                        </TangibleAssetValue>
+                                    </PEAllocation>
+                                    <FTEAllocation>
+                                        <JurOfOwners>
+                                            <ResCountryCode>DK</ResCountryCode>
+                                        </JurOfOwners>
+                                        <PayrollCost>
+                                            <Total>0</Total>
+                                            <Allocation>0</Allocation>
+                                        </PayrollCost>
+                                        <TangibleAssetValue>
+                                            <Total>0</Total>
+                                            <Allocation>0</Allocation>
+                                        </TangibleAssetValue>
+                                    </FTEAllocation>
+                                </SubstanceExclusion>
+                                <ExcessProfits>0</ExcessProfits>
+                                <AdditionalTopUpTax>
+
+                                </AdditionalTopUpTax>
+                                <QDMTT>
+                                    <FAS>0</FAS>
+                                    <Amount>0</Amount>
+                                    <BasisforBlending>0</BasisforBlending>
+                                    <SBIEAvailable>1</SBIEAvailable>
+                                    <DeMinAvailable>0</DeMinAvailable>
+                                    <Currency>DKK</Currency>
+                                </QDMTT>
+                                <TopUpTax>0</TopUpTax>
+                                <ExcessNegTaxExpense>
+                                    <PriorYearBalance>1000</PriorYearBalance>
+                                    <GeneratedInRFY>12344</GeneratedInRFY>
+                                    <UtilizedInRFY>54545</UtilizedInRFY>
+                                    <Remaining>5464</Remaining>
+                                </ExcessNegTaxExpense>
+                            </OverallComputation>
+                        </ETRComputation>
+                    </n1:ETRStatus>
+                </n1:ETR>
+            </n1:GLoBETax>
+            <n1:DocSpec>
+                <n2:DocTypeIndic>OECD1</n2:DocTypeIndic>
+                <n2:DocRefId>c49566ad-739e-4856-9a0e-79f60271a645</n2:DocRefId>
+            </n1:DocSpec>
+        </n1:JurisdictionSection>
+    </n1:GLOBEBody>
+</n1:GLOBE_OECD>
