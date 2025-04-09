@@ -1,7 +1,7 @@
 # Global Information Return (Suppleringsskatt)
 
 Used for the publication of system development documentation related to the BEPS Global Information Return file (GIR).  
-For further information, see: [https://www.skatteetaten.no/bedrift-og-organisasjon/rapportering-og-bransjer/suppleringsskatt/validering/](https://www.skatteetaten.no/bedrift-og-organisasjon/rapportering-og-bransjer/suppleringsskatt/validering/)
+For further information, see: TBD
 
 ## Format
 
@@ -13,5 +13,4 @@ The OECD guide for implementation and information regarding the structure of the
 ## Validation
 
 1. XSD validation is a prerequisite for delivering the file. If it doesn't pass, the file is rejected with no specific error code except: 'XSD validation failed'.
-2. Validate your file using the validation service listed here:  
-[https://www.skatteetaten.no/bedrift-og-organisasjon/rapportering-og-bransjer/suppleringsskatt/validering/](https://www.skatteetaten.no/bedrift-og-organisasjon/rapportering-og-bransjer/suppleringsskatt/validering/)
+2. Validate your file using the validation service listed here: TBD
