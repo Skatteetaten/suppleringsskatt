@@ -4,7 +4,11 @@
 0. 
     Alle GUID som er brukt i denne filen er konstruert og skal ikke brukes 
     TIN nummer på alt er satt til Skatteetatens Organisasjonsnummer , dette bør byttes om man vil 
-    teste med faktiske data for å sjekke at det blir slått opp. 
+    teste med faktiske data for å sjekke at det blir slått opp.
+
+    !OBS dersom man bare tar denne filen og ikke gjør noe med den vil den gi utslag på følgende regler :
+        - SKE002N   - Konsistend mellom innsender og Filling CE : fordi man er innlogget med annet orgnummer en definert i fillingCE: 974761076
+        - OECD70011 - Landkode for konsernenhet : fordi vi bruker samme orgnummer på alle CE enheter
 
 1. MessageSpec
     - Denne delen inneholder informasjon om sendingen og sender
@@ -43,7 +47,7 @@
         <n1:Contact>"Contact information"</n1:Contact>        <!--Kontaktinformasjon -->
         <n1:MessageRefId>24a42280-8406-470c-944a-ec0684563789</n1:MessageRefId>        <!--meldingsreferanseidentifikator-->
         <n1:MessageTypeIndic>GIR101</n1:MessageTypeIndic>        <!--meldingstypeindikator GIR101=nyinfo:GIR102=rettelse:GIR103=ingendata -->
-        <n1:ReportingPeriod>2024-07-01</n1:ReportingPeriod>        <!--siste dato i rapporteringsperiode -->
+        <n1:ReportingPeriod>2024-12-31</n1:ReportingPeriod>        <!--siste dato i rapporteringsperiode -->
         <n1:Timestamp>2024-07-01T12:23:40</n1:Timestamp>        <!--fil opprettet tid -->
     </n1:MessageSpec>
     <n1:GLOBEBody>
@@ -51,7 +55,7 @@
             <n1:FilingCE>                <!-- rapporterende konsernenhet -->
                 <n1:ResCountryCode>NO</n1:ResCountryCode>                <!--hjemmehørende landkode-->                <!--hjemmehørende landkode-->
                 <n1:Name>Testkonsern ASA</n1:Name>                <!--virksomhetsnavn-->                <!--virksomhetsnavn-->
-                <n1:TIN>974761076</n1:TIN>                <!--identifikator for finansinstitusjon-->                <!--identifikator for finansinstitusjon-->
+                <n1:TIN unknown="false" TypeOfTIN="GIR3001" issuedBy="NO">974761076</n1:TIN>                <!--identifikator for finansinstitusjon-->                <!--identifikator for finansinstitusjon-->
                 <n1:Role>GIR401</n1:Role>                <!--rolle 403-konstituert/402-local/401-designert -->
             </n1:FilingCE>
             <n1:AccountingInfo>
@@ -81,7 +85,7 @@
                         <n1:ID>
                             <n1:Name>Testkonsern ASA</n1:Name>                            <!--virksomhetsnavn-->
                             <n1:ResCountryCode>NO</n1:ResCountryCode>                            <!--hjemmehørende landkode-->                            <!--hjemmehørende landkode-->
-                            <n1:TIN>974761076</n1:TIN>                            <!--identifikator for finansinstitusjon-->
+                            <n1:TIN unknown="false" TypeOfTIN="GIR3001" issuedBy="NO">974761076</n1:TIN>                            <!--identifikator for finansinstitusjon-->
                             <n1:Rules>GIR204</n1:Rules>                            <!--ID type  -->
                             <GlobeStatus>GIR301</GlobeStatus>                            <!-- status for GloBE-formål-->
                         </n1:ID>
@@ -92,13 +96,13 @@
                     <n1:ID>
                         <n1:Name>VRIEN BRA TIGER AS</n1:Name>                        <!--virksomhetsnavn-->
                         <n1:ResCountryCode>NO</n1:ResCountryCode>                        <!--hjemmehørende landkode-->
-                        <n1:TIN>974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
+                        <n1:TIN unknown="false" TypeOfTIN="GIR3001" issuedBy="NO">974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
                         <n1:Rules>GIR204</n1:Rules>                        <!--ID type  -->
                         <n1:GlobeStatus>GIR301</n1:GlobeStatus>                        <!-- status for GloBE-formål-->
                     </n1:ID>
                     <n1:Ownership>                        <!-- eierskap -->
                         <n1:OwnershipType>GIR801</n1:OwnershipType>                        <!-- Eierskapstype -->
-                        <n1:TIN>974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
+                        <n1:TIN unknown="false" TypeOfTIN="GIR3001" issuedBy="NO">974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
                         <n1:OwnershipPercentage>0.9999</n1:OwnershipPercentage>                        <!-- eierandeler-->
                     </n1:Ownership>
                 </n1:CE>
@@ -106,13 +110,13 @@
                     <n1:ID>
                         <n1:Name>FUNKSJONELL FALSK KATT BØRSTE</n1:Name>                        <!--virksomhetsnavn-->
                         <n1:ResCountryCode>NO</n1:ResCountryCode>                        <!--hjemmehørende landkode-->
-                        <n1:TIN>974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
+                        <n1:TIN unknown="false" TypeOfTIN="GIR3001" issuedBy="NO">974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
                         <n1:Rules>GIR204</n1:Rules>                        <!--ID type  -->
                         <n1:GlobeStatus>GIR301</n1:GlobeStatus>                        <!-- status for GloBE-formål-->
                     </n1:ID>
                     <n1:Ownership>                        <!-- eierskap -->
                         <n1:OwnershipType>GIR801</n1:OwnershipType>                        <!-- Eierskapstype -->
-                        <n1:TIN>974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
+                        <n1:TIN unknown="false" TypeOfTIN="GIR3001" issuedBy="NO">974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
                         <n1:OwnershipPercentage>0.9999</n1:OwnershipPercentage>                        <!-- eierandeler-->
                     </n1:Ownership>
                 </n1:CE>
@@ -120,13 +124,13 @@
                     <n1:ID>
                         <n1:Name>ELASTISK UMUSIKALSK TIGER AS</n1:Name>                        <!--virksomhetsnavn-->
                         <n1:ResCountryCode>NO</n1:ResCountryCode>                        <!--hjemmehørende landkode-->
-                        <n1:TIN>974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
+                        <n1:TIN unknown="false" TypeOfTIN="GIR3001" issuedBy="NO">974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
                         <n1:Rules>GIR204</n1:Rules>                        <!--ID type  -->
                         <n1:GlobeStatus>GIR306</n1:GlobeStatus>                        <!--Status Globe Purpose MainEntity -->
                     </n1:ID>
                     <n1:Ownership>                        <!-- eierskap -->
                         <n1:OwnershipType>GIR802</n1:OwnershipType>                        <!-- Eierskapstype : 802 CE -->
-                        <n1:TIN>974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
+                        <n1:TIN unknown="false" TypeOfTIN="GIR3001" issuedBy="NO">974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
                         <n1:OwnershipPercentage>0.9999</n1:OwnershipPercentage>                        <!-- eierandeler-->
                     </n1:Ownership>
                 </n1:CE>
@@ -134,13 +138,13 @@
                     <n1:ID>
                         <n1:Name>Syrran AB</n1:Name>                        <!--virksomhetsnavn-->
                         <n1:ResCountryCode>SE</n1:ResCountryCode>                        <!--hjemmehørende landkode-->
-                        <n1:TIN>974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
+                        <n1:TIN unknown="false" TypeOfTIN="GIR3001" issuedBy="NO">974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
                         <n1:Rules>GIR201</n1:Rules>                        <!--ID type  -->
                         <n1:GlobeStatus>GIR301</n1:GlobeStatus>                        <!--status for GloBE-formål -->
                     </n1:ID>
                     <n1:Ownership>                        <!-- eierskap -->
                         <n1:OwnershipType>GIR801</n1:OwnershipType>                        <!-- Eierskapstype -->
-                        <n1:TIN>974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
+                        <n1:TIN unknown="false" TypeOfTIN="GIR3001" issuedBy="NO">974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
                         <n1:OwnershipPercentage>0.9999</n1:OwnershipPercentage>                        <!-- eierandeler-->
                     </n1:Ownership>
                 </n1:CE>
@@ -148,13 +152,13 @@
                     <n1:ID>
                         <n1:Name>Brorsan AB</n1:Name>                        <!--virksomhetsnavn-->
                         <n1:ResCountryCode>SE</n1:ResCountryCode>                        <!--hjemmehørende landkode-->
-                        <n1:TIN>974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
+                        <n1:TIN unknown="false" TypeOfTIN="GIR3001" issuedBy="NO">974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
                         <n1:Rules>GIR201</n1:Rules>                        <!--ID type  -->
                         <n1:GlobeStatus>GIR301</n1:GlobeStatus>                        <!--status for GloBE-formål -->
                     </n1:ID>
                     <n1:Ownership>                        <!-- eierskap -->
                         <n1:OwnershipType>GIR801</n1:OwnershipType>                        <!-- Eierskapstype -->
-                        <n1:TIN>974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
+                        <n1:TIN unknown="false" TypeOfTIN="GIR3001" issuedBy="NO">974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
                         <n1:OwnershipPercentage>0.9999</n1:OwnershipPercentage>                        <!-- eierandeler-->
                     </n1:Ownership>
                 </n1:CE>
@@ -162,13 +166,13 @@
                     <n1:ID>
                         <n1:Name>Berlin GmbH</n1:Name>                        <!--virksomhetsnavn-->
                         <n1:ResCountryCode>DE</n1:ResCountryCode>                        <!--hjemmehørende landkode-->
-                        <n1:TIN>974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
+                        <n1:TIN unknown="false" TypeOfTIN="GIR3001" issuedBy="NO">974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
                         <n1:Rules>GIR201</n1:Rules>                        <!--ID type  -->
                         <n1:GlobeStatus>GIR301</n1:GlobeStatus>                        <!--status for GloBE-formål -->
                     </n1:ID>
                     <n1:Ownership>                        <!-- eierskap -->
                         <n1:OwnershipType>GIR801</n1:OwnershipType>                        <!-- Eierskapstype -->
-                        <n1:TIN>974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
+                        <n1:TIN unknown="false" TypeOfTIN="GIR3001" issuedBy="NO">974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
                         <n1:OwnershipPercentage>0.9999</n1:OwnershipPercentage>                        <!-- eierandeler-->
                     </n1:Ownership>
                 </n1:CE>
@@ -176,13 +180,13 @@
                     <n1:ID>
                         <n1:Name>Bonn GmbH</n1:Name>                        <!--virksomhetsnavn-->
                         <n1:ResCountryCode>DE</n1:ResCountryCode>                        <!--hjemmehørende landkode-->
-                        <n1:TIN>974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
+                        <n1:TIN unknown="false" TypeOfTIN="GIR3001" issuedBy="NO">974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
                         <n1:Rules>GIR201</n1:Rules>                        <!--ID type  -->
                         <n1:GlobeStatus>GIR301</n1:GlobeStatus>                        <!--status for GloBE-formål -->
                     </n1:ID>
                     <n1:Ownership>                        <!-- eierskap -->
                         <n1:OwnershipType>GIR801</n1:OwnershipType>                        <!-- Eierskapstype -->
-                        <n1:TIN>974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
+                        <n1:TIN unknown="false" TypeOfTIN="GIR3001" issuedBy="NO">974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
                         <n1:OwnershipPercentage>0.9999</n1:OwnershipPercentage>                        <!-- eierandeler-->
                     </n1:Ownership>
                 </n1:CE>
@@ -190,13 +194,13 @@
                     <n1:ID>
                         <n1:Name>Antwerpen</n1:Name>                        <!--virksomhetsnavn-->
                         <n1:ResCountryCode>BE</n1:ResCountryCode>                        <!--hjemmehørende landkode-->
-                        <n1:TIN>974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
+                        <n1:TIN unknown="false" TypeOfTIN="GIR3001" issuedBy="NO">974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
                         <n1:Rules>GIR201</n1:Rules>                        <!--ID type  -->
                         <n1:GlobeStatus>GIR301</n1:GlobeStatus>                        <!--status for GloBE-formål -->
                     </n1:ID>
                     <n1:Ownership>                        <!-- eierskap -->
                         <n1:OwnershipType>GIR801</n1:OwnershipType>                        <!-- Eierskapstype -->
-                        <n1:TIN>974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
+                        <n1:TIN unknown="false" TypeOfTIN="GIR3001" issuedBy="NO">974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
                         <n1:OwnershipPercentage>0.9999</n1:OwnershipPercentage>                        <!-- eierandeler-->
                     </n1:Ownership>
                     <n1:QUTPR>
@@ -208,13 +212,13 @@
                     <n1:ID>
                         <n1:Name>Liege</n1:Name>                        <!--virksomhetsnavn-->
                         <n1:ResCountryCode>BE</n1:ResCountryCode>                        <!--hjemmehørende landkode-->
-                        <n1:TIN>974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
+                        <n1:TIN unknown="false" TypeOfTIN="GIR3001" issuedBy="NO">974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
                         <n1:Rules>GIR201</n1:Rules>                        <!--ID type  -->
                         <n1:GlobeStatus>GIR301</n1:GlobeStatus>                        <!--status for GloBE-formål -->
                     </n1:ID>
                     <n1:Ownership>                        <!-- eierskap -->
                         <n1:OwnershipType>GIR801</n1:OwnershipType>                        <!-- Eierskapstype -->
-                        <n1:TIN>974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
+                        <n1:TIN unknown="false" TypeOfTIN="GIR3001" issuedBy="NO">974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
                         <n1:OwnershipPercentage>0.9999</n1:OwnershipPercentage>                        <!-- eierandeler-->
                     </n1:Ownership>
                     <n1:QUTPR>
@@ -226,13 +230,13 @@
                     <n1:ID>
                         <n1:Name>Trøst AS Filial</n1:Name>                        <!--virksomhetsnavn-->
                         <n1:ResCountryCode>DK</n1:ResCountryCode>                        <!--hjemmehørende landkode-->
-                        <n1:TIN>974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
+                        <n1:TIN unknown="false" TypeOfTIN="GIR3001" issuedBy="NO">974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
                         <n1:Rules>GIR201</n1:Rules>                        <!--ID type  -->
                         <n1:GlobeStatus>GIR301</n1:GlobeStatus>                        <!--status for GloBE-formål -->
                     </n1:ID>
                     <n1:Ownership>                        <!-- eierskap -->
                         <n1:OwnershipType>GIR801</n1:OwnershipType>                        <!-- Eierskapstype -->
-                        <n1:TIN>974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
+                        <n1:TIN unknown="false" TypeOfTIN="GIR3001" issuedBy="NO">974761076</n1:TIN>                        <!--identifikator for finansinstitusjon-->
                         <n1:OwnershipPercentage>0.9999</n1:OwnershipPercentage>                        <!-- eierandeler-->
                     </n1:Ownership>
                 </n1:CE>
@@ -286,7 +290,7 @@
                         <ETRComputation>                            <!-- Effektiv skattesats utregning -->
                             <CEComputation>                                <!-- Konsernenhet skattesats status -->
                                 <AdjustedFANIL>                                    <!--Justert Resultat -->
-                                    <Total>108800000</Total>
+                                    <Total>100000000</Total>
                                     <FANIL>100000000</FANIL>                                    <!-- regnskapsmessig resultat-->  
                                 </AdjustedFANIL>
                                 <NetGlobeIncome>                                   <!-- samlet overskudd-->
@@ -311,11 +315,11 @@
                                         <DeferTaxExpense>0</DeferTaxExpense>
                                     </DeferTaxAdjustAmt>
                                 </AdjustedCoveredTax>
-                                <TIN>974761076</TIN>
+                                <TIN unknown="false" TypeOfTIN="GIR3001" issuedBy="NO">974761076</TIN>
                             </CEComputation>
                             <CEComputation>
                                 <AdjustedFANIL>
-                                    <Total>32090000</Total>
+                                    <Total>29900000</Total>
                                     <FANIL>29900000</FANIL>                                    <!-- regnskapsmessig resultat-->                                
                                     <Adjustment>
                                         <MainEntityPEandFTE>
@@ -356,7 +360,7 @@
                                         <DeferTaxExpense>0</DeferTaxExpense>
                                     </DeferTaxAdjustAmt>
                                 </AdjustedCoveredTax>
-                                <TIN>974761076</TIN>
+                                <TIN unknown="false" TypeOfTIN="GIR3001" issuedBy="NO">974761076</TIN>
                             </CEComputation>
                             <CEComputation>
                                 <AdjustedFANIL>
@@ -377,7 +381,7 @@
                                         <DeferTaxExpense>0</DeferTaxExpense>
                                     </DeferTaxAdjustAmt>
                                 </AdjustedCoveredTax>
-                                <TIN>974761076</TIN>                                <!--denne har ingen data definert i del1 ? -->
+                                <TIN unknown="false" TypeOfTIN="GIR3001" issuedBy="NO">974761076</TIN>                                <!--denne har ingen data definert i del1 ? -->
                             </CEComputation>
                             <OverallComputation>
                                 <FANIL>0</FANIL>                                <!-- regnskapsmessig resultat-->
@@ -449,13 +453,13 @@
             <n1:LowTaxJurisdiction> <!-- jurisdiksjon med lav beskatning-->
                 <n1:TopUpTaxAmount>0</n1:TopUpTaxAmount>              
                 <n1:LTCE>    <!-- underbeskattet konsernenhet-->
-                    <n1:TIN>974761076</n1:TIN>                    <!--identifikator for finansinstitusjon-->
+                    <n1:TIN unknown="false" TypeOfTIN="GIR3001" issuedBy="NO">974761076</n1:TIN>                    <!--identifikator for finansinstitusjon-->
                     <IIR>   <!-- skatteinkluderingsregel-->
                         <TopUpTax>0</TopUpTax>
                     </IIR>
                 </n1:LTCE>
                 <LTCE>   <!-- underbeskattet konsernenhet-->
-                    <TIN>974761076</TIN>
+                    <TIN unknown="false" TypeOfTIN="GIR3001" issuedBy="NO">974761076</TIN>
                     <IIR>   <!-- skatteinkluderingsregel-->
                         <TopUpTax>0</TopUpTax>
                     </IIR>
@@ -475,7 +479,7 @@
                         <ETRComputation>                            <!-- Effektiv skattesats utregning -->
                             <CEComputation>                                <!-- Konsernenhet skattesats status -->
                                 <AdjustedFANIL>                                    <!--Justert Resultat -->
-                                    <Total>50000000</Total>
+                                    <Total>45000000</Total>
                                     <FANIL>45000000</FANIL>                                    <!-- regnskapsmessig resultat-->
                                 </AdjustedFANIL>
                                 <NetGlobeIncome>                                    <!-- samlet overskudd-->
@@ -496,11 +500,11 @@
                                         <DeferTaxExpense>0</DeferTaxExpense>
                                     </DeferTaxAdjustAmt>
                                 </AdjustedCoveredTax>
-                                <TIN>974761076</TIN>
+                                <TIN unknown="false" TypeOfTIN="GIR3001" issuedBy="NO">974761076</TIN>
                             </CEComputation>
                             <CEComputation>                                <!--Belgia enhet 2 -->
                                 <AdjustedFANIL>
-                                    <Total>10000000</Total>
+                                    <Total>9000000</Total>
                                     <FANIL>9000000</FANIL>                                    <!-- regnskapsmessig resultat-->
                                 </AdjustedFANIL>
                                 <NetGlobeIncome>                                    <!-- samlet overskudd-->
@@ -521,11 +525,11 @@
                                         <DeferTaxExpense>9876543</DeferTaxExpense>
                                     </DeferTaxAdjustAmt>
                                 </AdjustedCoveredTax>
-                                <TIN>974761076</TIN>
+                                <TIN unknown="false" TypeOfTIN="GIR3001" issuedBy="NO">974761076</TIN>
                             </CEComputation>
                             <CEComputation>                            
                                 <AdjustedFANIL>
-                                    <Total>100000</Total>
+                                    <Total>200000</Total>
                                     <FANIL>100000</FANIL>                                    <!-- regnskapsmessig resultat-->
                                     <Adjustment>
                                         <MainEntityPEandFTE>
@@ -562,7 +566,7 @@
                                         <DeferTaxExpense>987654</DeferTaxExpense>
                                     </DeferTaxAdjustAmt>
                                 </AdjustedCoveredTax>
-                                <TIN>974761076</TIN>
+                                <TIN unknown="false" TypeOfTIN="GIR3001" issuedBy="NO">974761076</TIN>
                             </CEComputation>
                             <OverallComputation>
                                 <FANIL>54100000</FANIL>                                <!-- regnskapsmessig resultat-->
@@ -634,19 +638,19 @@
             <LowTaxJurisdiction>    <!-- jurisdiksjon med lav beskatning-->
                 <TopUpTaxAmount>0</TopUpTaxAmount>                
                 <LTCE>  <!-- underbeskattet konsernenhet-->
-                    <TIN>974761076</TIN>
+                    <TIN unknown="false" TypeOfTIN="GIR3001" issuedBy="NO">974761076</TIN>
                     <IIR>   <!-- skatteinkluderingsregel-->
                         <TopUpTax>123</TopUpTax>
                     </IIR>
                 </LTCE>
                 <LTCE>  <!-- underbeskattet konsernenhet-->
-                    <TIN>974761076</TIN>
+                    <TIN unknown="false" TypeOfTIN="GIR3001" issuedBy="NO">974761076</TIN>
                     <IIR> <!-- skatteinkluderingsregel-->
                         <TopUpTax>123</TopUpTax>
                     </IIR>
                 </LTCE>
                 <LTCE>  <!-- underbeskattet konsernenhet-->
-                    <TIN>974761076</TIN>
+                    <TIN unknown="false" TypeOfTIN="GIR3001" issuedBy="NO">974761076</TIN>
                     <IIR>   <!-- skatteinkluderingsregel-->
                         <TopUpTax>123</TopUpTax>
                     </IIR>
@@ -725,7 +729,7 @@
                                         <DeferTaxExpense>987654</DeferTaxExpense>
                                     </DeferTaxAdjustAmt>
                                 </AdjustedCoveredTax>
-                                <TIN>974761076</TIN>
+                                <TIN unknown="false" TypeOfTIN="GIR3001" issuedBy="NO">974761076</TIN>
                             </CEComputation>
 
                             <OverallComputation>
